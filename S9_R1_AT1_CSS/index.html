@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade de Aplicação - Transições CSS</title>
+  <style>
+    /* Reset & Estilos Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto 40px auto;
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #0f172a;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: #1e293b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+      margin-bottom: 25px;
+    }
+
+    /* ATIVIDADE DE APROPRIAÇÃO - EXERCÍCIO 1 */
+    .apropriacao-box {
+      background-color: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    .apropriacao-box code {
+      background-color: #e2e8f0;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      color: #0f172a;
+      font-weight: bold;
+    }
+
+    .qa-list {
+      margin-top: 15px;
+      list-style: none;
+    }
+
+    .qa-list li {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .qa-list strong {
+      color: #2563eb;
+    }
+
+    
+       /* EXERCÍCIO 2: TRÊS BOTÕES COM TRANSITION */
+       
+    .buttons-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    .btn-ex2 {
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      /* Requisito obrigatório para os 3 botões */
+      transition: 0.5s;
+    }
+
+    /* Botão 1: Alterar Background */
+    .btn-bg {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+    .btn-bg:hover {
+      background-color: #059669;
+    }
+
+    /* Botão 2: Alterar Color */
+    .btn-color {
+      background-color: #ffffff;
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+    .btn-color:hover {
+      color: #dc2626;
+      border-color: #dc2626;
+    }
+
+    /* Botão 3: scale(1.1) */
+    .btn-scale {
+      background-color: #0f172a;
+      color: #ffffff;
+    }
+    .btn-scale:hover {
+      transform: scale(1.1);
+    }
+
+    /* DESAFIO PROFISSIONAL: PÁGINA INICIAL */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      background-color: #0f172a;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .site-logo {
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    /* Menu: Mudança suave de cor */
+    .nav-menu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      /* Transição de cor */
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #f1f5f9;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    /* Botões da Landing Page: Efeito de crescimento */
+    .btn-hero {
+      display: inline-block;
+      background-color: #2563eb;
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      /* Transição e Transformação de Escala */
+      transition: 0.3s;
+    }
+
+    .btn-hero:hover {
+      transform: scale(1.1);
+      background-color: #1d4ed8;
+    }
+
+    /* Cards: Elevação visual */
+    .cards-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 25px 20px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 250px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      /* Transição de Deslocamento/Elevação */
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* Rodapé com Links: Alteração elegante de cor */
+    .site-footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+
+    .footer-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.9rem;
+      /* Transição elegante de cor */
+      transition: 0.4s;
+    }
+
+    .footer-link:hover {
+      color: #f59e0b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ATIVIDADE DE APROPRIAÇÃO - EXERCÍCIO 1 -->
+  <section class="container">
+    <h2 class="section-title">Atividade de Apropriação - Exercício 1</h2>
+    <div class="apropriacao-box">
+      <p>Código analisado: <code>transition: 1s;</code></p>
+      <ul class="qa-list">
+        <li><strong>1. Qual propriedade está sendo utilizada?</strong> R: <code>transition</code></li>
+        <li><strong>2. Qual a duração da transição?</strong> R: <code>1 segundo</code> (1s).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ATIVIDADE DE APLICAÇÃO - EXERCÍCIO 2 -->
+  <section class="container">
+    <h2 class="section-title">Atividade de Aplicação - Exercício 2</h2>
+    <div class="buttons-grid">
+      <button class="btn-ex2 btn-bg">Botão 1 (Background)</button>
+      <button class="btn-ex2 btn-color">Botão 2 (Color)</button>
+      <button class="btn-ex2 btn-scale">Botão 3 (Scale 1.1)</button>
+    </div>
+  </section>
+
+  <!-- DESAFIO PROFISSIONAL: PÁGINA INICIAL -->
+  <section class="container">
+    <h1>Desafio Profissional - Landing Page</h1>
+    
+    <!-- Menu com transição suave de cor -->
+    <header class="site-header">
+      <div class="site-logo">TechCorp</div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link">Início</a></li>
+          <li><a href="#" class="nav-link">Serviços</a></li>
+          <li><a href="#" class="nav-link">Projetos</a></li>
+          <li><a href="#" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero com Botão de Crescimento -->
+    <section class="hero">
+      <h2>Soluções Digitais Modernas</h2>
+      <p>Desenvolvemos interfaces dinâmicas utilizando transições de alto desempenho.</p>
+      <a href="#" class="btn-hero">Começar Agora</a>
+    </section>
+
+    <!-- Cards com Elevação Visual -->
+    <div class="cards-grid">
+      <div class="card">
+        <h3> Alta Performance</h3>
+        <p>Efeitos leves que não sobrecarregam o processamento do navegador.</p>
+      </div>
+
+      <div class="card">
+        <h3> Design Fluido</h3>
+        <p>Interações suaves que guiam o usuário de forma intuitiva.</p>
+      </div>
+
+      <div class="card">
+        <h3> Sem JavaScript</h3>
+        <p>Animações CSS nativas garantem maior segurança e rapidez.</p>
+      </div>
+    </div>
+
+    <!-- Rodapé com Links de alteração elegante de cor -->
+    <footer class="site-footer">
+      <p>&copy; 2026 TechCorp. Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Termos de Uso</a></li>
+        <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+        <li><a href="#" class="footer-link">Suporte</a></li>
+      </ul>
+    </footer>
+  </section>
+
+ 
+<!-- 
+  AUTOAVALIAÇÃO:
+  1. A interface ficou mais agradável?
+     Resposta: Com certeza. Colocar essas transições suaves fez toda a diferença — acabou com aquela sensação de mudança "seca" quando a gente passa o mouse pelos elementos. A navegação ficou bem mais fluida e gostosa de usar.
+
+  2. O efeito contribuiu para a navegação?
+     Resposta: Sim, ajudou demais! Efeitos como o botão crescendo, o menu mudando de cor e os cards levantando funcionam como um sinal claro de que ali dá para clicar. Deixa o site bem mais intuitivo para o usuário.
+
+  3. A velocidade da transição foi adequada?
+     Resposta: Sim, achei o tempo na medida certa. Os 0.5s do Exercício 2 foram ótimos para conseguir enxergar bem a animação acontecendo. Já os 0.3s e 0.4s do Desafio Profissional deixaram a interface bem rápida e esperta, sem parecer travada ou arrastada.
+-->
+
+
+
+</body>
+</html>
+

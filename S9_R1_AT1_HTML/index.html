@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade de Aplicação - Validações e Atributos HTML5</title>
+  <style>
+    /* Reset & Estilos Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e2e8f0;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #0f172a;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: #1e293b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* Tabela de Apropriação */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #1e293b;
+      color: #ffffff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f1f5f9;
+    }
+
+    /* Formulários e Grid */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    fieldset {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #f8fafc;
+    }
+
+    legend {
+      font-weight: 600;
+      color: #2563eb;
+      padding: 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .required-mark {
+      color: #dc2626;
+      margin-left: 2px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #1e293b;
+      background-color: #ffffff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Indicador visual nativo de validação no envio */
+    input:invalid:not(:placeholder-shown), 
+    textarea:invalid:not(:placeholder-shown) {
+      border-color: #ef4444;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .hint-text {
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+
+    .btn-submit {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      align-self: flex-start;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ATIVIDADE DE APROPRIAÇÃO -->
+  <section class="container">
+    <h2 class="section-title">Atividade de Apropriação: Atributos HTML5</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Atributo</th>
+          <th>Função</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>required</code></td>
+          <td>Torna o preenchimento do campo obrigatório antes do envio do formulário.</td>
+        </tr>
+        <tr>
+          <td><code>minlength</code></td>
+          <td>Define a quantidade mínima de caracteres permitida.</td>
+        </tr>
+        <tr>
+          <td><code>maxlength</code></td>
+          <td>Define a quantidade máxima de caracteres permitida.</td>
+        </tr>
+        <tr>
+          <td><code>min</code></td>
+          <td>Define o valor numérico ou data mínima aceita.</td>
+        </tr>
+        <tr>
+          <td><code>max</code></td>
+          <td>Define o valor numérico ou data máxima aceita.</td>
+        </tr>
+        <tr>
+          <td><code>pattern</code></td>
+          <td>Aplica uma regra de validação por expressão regular (Regex).</td>
+        </tr>
+        <tr>
+          <td><code>placeholder</code></td>
+          <td>Exibe um texto explicativo/sugestão enquanto o campo estiver vazio.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ATIVIDADE DE APLICAÇÃO: DESAFIO - INSCRIÇÃO EM EVENTO -->
+  <section class="container">
+    <h2 class="section-title">1. Desafio: Inscrição em Evento</h2>
+    
+    <form action="#" method="POST">
+      <div class="form-grid">
+        
+        <div class="form-group">
+          <label for="evt-nome">Nome Completo <span class="required-mark">*</span></label>
+          <input type="text" id="evt-nome" name="nome" placeholder="Ex: Maria Oliveira" required minlength="3">
+        </div>
+
+        <div class="form-group">
+          <label for="evt-email">E-mail <span class="required-mark">*</span></label>
+          <input type="email" id="evt-email" name="email" placeholder="maria@exemplo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="evt-telefone">Telefone <span class="required-mark">*</span></label>
+          <input type="tel" id="evt-telefone" name="telefone" placeholder="(11) 99999-9999" pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" required>
+          <span class="hint-text">Formato: (11) 99999-9999</span>
+        </div>
+
+        <div class="form-group">
+          <label for="evt-data">Data do Evento <span class="required-mark">*</span></label>
+          <input type="date" id="evt-data" name="data_evento" required min="2026-11-01">
+        </div>
+
+        <div class="form-group">
+          <label for="evt-qtd">Quantidade de Participantes <span class="required-mark">*</span></label>
+          <input type="number" id="evt-qtd" name="quantidade" min="1" max="10" placeholder="1 a 10" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="evt-obs">Observações</label>
+          <textarea id="evt-obs" name="observacoes" maxlength="200" placeholder="Necessidades especiais ou dúvidas gerais (máx. 200 caracteres)..."></textarea>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn-submit">Confirmar Inscrição</button>
+    </form>
+  </section>
+
+  <!-- DESAFIO PROFISSIONAL: CADASTRO DE CANDIDATOS -->
+  <section class="container">
+    <h2 class="section-title">2. Desafio Profissional: Cadastro de Candidatos</h2>
+    
+    <form action="#" method="POST">
+      
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label for="cand-nome">Nome Completo <span class="required-mark">*</span></label>
+            <input type="text" id="cand-nome" name="nome" placeholder="Digite seu nome completo" required minlength="5">
+          </div>
+
+          <div class="form-group">
+            <label for="cand-email">E-mail <span class="required-mark">*</span></label>
+            <input type="email" id="cand-email" name="email" placeholder="candidato@tech.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cand-telefone">Telefone <span class="required-mark">*</span></label>
+            <input type="tel" id="cand-telefone" name="telefone" placeholder="(11) 98888-7777" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cand-nascimento">Data de Nascimento <span class="required-mark">*</span></label>
+            <input type="date" id="cand-nascimento" name="data_nascimento" required max="2008-01-01">
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Dados Profissionais</legend>
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label for="cand-area">Área de Atuação <span class="required-mark">*</span></label>
+            <select id="cand-area" name="area_atuacao" required>
+              <option value="">Selecione uma área...</option>
+              <option value="frontend">Desenvolvimento Front-end</option>
+              <option value="backend">Desenvolvimento Back-end</option>
+              <option value="fullstack">Desenvolvimento Full Stack</option>
+              <option value="uxui">Design UI/UX</option>
+              <option value="qa">Garantia de Qualidade (QA)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cand-salario">Pretensão Salarial (R$)</label>
+            <input type="number" id="cand-salario" name="pretensao_salarial" min="1500" step="500" placeholder="Ex: 5000">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="cand-portfolio">Portfólio (URL)</label>
+            <input type="url" id="cand-portfolio" name="portfolio" placeholder="https://seuportfolio.com.br">
+          </div>
+
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn-submit">Enviar Candidatura</button>
+    </form>
+  </section>
+
+  <!-- DESAFIO AVANÇADO: ABERTURA DE CHAMADOS TÉCNICOS -->
+  <section class="container">
+    <h2 class="section-title">3. Desafio Avançado: Abertura de Chamado Técnico</h2>
+    
+    <form action="#" method="POST">
+      <div class="form-grid">
+        
+        <div class="form-group">
+          <label for="ch-equipamento">Número do Equipamento <span class="required-mark">*</span></label>
+          <input type="text" id="ch-equipamento" name="numero_equipamento" placeholder="Ex: EQP-2024-X" required minlength="4" maxlength="12">
+          <span class="hint-text">Entre 4 e 12 caracteres</span>
+        </div>
+
+        <div class="form-group">
+          <label for="ch-data">Data da Ocorrência <span class="required-mark">*</span></label>
+          <input type="date" id="ch-data" name="data_chamado" required>
+        </div>
+
+        <div class="form-group">
+          <label for="ch-prioridade">Prioridade <span class="required-mark">*</span></label>
+          <select id="ch-prioridade" name="prioridade" required>
+            <option value="">Selecione a prioridade...</option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+            <option value="critica">Crítica</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ch-email">E-mail do Solicitante <span class="required-mark">*</span></label>
+          <input type="email" id="ch-email" name="email_solicitante" placeholder="solicitante@empresa.com" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="ch-descricao">Descrição do Problema <span class="required-mark">*</span></label>
+          <textarea id="ch-descricao" name="descricao" required minlength="15" maxlength="500" placeholder="Descreva detalhadamente o problema enfrentado (mínimo de 15 caracteres)..."></textarea>
+          <span class="hint-text">Mínimo de 15 e máximo de 500 caracteres</span>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn-submit">Abrir Chamado</button>
+    </form>
+  </section>
+
+ <!-- 
+  AUTOAVALIAÇÃO:
+
+  Meu formulário ajuda o usuário a preencher as informações corretamente ou gera dificuldades?
+  Com certeza ajuda bastante! Montei o formulário pensando em facilitar a vida de quem preenche: usei placeholders que explicam o formato esperado, máscara no campo de telefone, seletor de data e os limites de caracteres (minlength e maxlength). Com tudo isso bem sinalizado, a pessoa sabe exatamente o que e como digitar de primeira, evitando erros antes mesmo de tentar enviar.
+-->
+
+</body>
+</html>
+

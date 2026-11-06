@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade de Aplicação - Transformações CSS</title>
+  <style>
+    /* Estilos Gerais */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f1f5f9;
+      color: #334155;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .section-title {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+
+    /* ==========================================
+       EXERCÍCIO 2: ANÁLISE DE TRANSFORMAÇÕES
+       ========================================== */
+    .exercise-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .ex-card {
+      background: #e2e8f0;
+      border: 2px solid #cbd5e1;
+      padding: 25px 15px;
+      width: 260px;
+      text-align: center;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .ex-card h3 {
+      margin-bottom: 10px;
+      color: #1e293b;
+    }
+
+    /* Card 1: scale(1.1) */
+    .card-scale:hover {
+      transform: scale(1.1);
+    }
+
+    /* Card 2: rotate(10deg) */
+    .card-rotate:hover {
+      transform: rotate(10deg);
+    }
+
+    /* Card 3: translateY(-10px) */
+    .card-translate:hover {
+      transform: translateY(-10px);
+    }
+
+    /* ==========================================
+       DESAFIO PROFISSIONAL: LANDING PAGE MODERNA
+       ========================================== */
+    /* 1. Banner Principal com skew() */
+    .hero-banner {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      padding: 60px 30px;
+      border-radius: 16px;
+      margin: 30px 0 50px 0;
+      /* Requisito: skew() */
+      transform: skewY(-2deg);
+    }
+    .hero-content {
+      /* Neutraliza a inclinação no texto para preservar legibilidade */
+      transform: skewY(2deg);
+      text-align: center;
+    }
+    .hero-content h2 {
+      color: #ffffff;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* 2. Botões com scale() */
+    .btn-action {
+      display: inline-block;
+      background-color: #38bdf8;
+      color: #0f172a;
+      padding: 12px 28px;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 15px;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    /* Requisito: scale() */
+    .btn-action:hover {
+      transform: scale(1.08);
+      background-color: #7dd3fc;
+    }
+
+    /* Seção de Recursos da Landing Page */
+    .landing-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* 3. Cards com translate() */
+    .landing-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 30px 20px;
+      border-radius: 12px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Requisito: translate() */
+    .landing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* 4. Ícones com rotate() */
+    .icon {
+      font-size: 40px;
+      display: inline-block;
+      margin-bottom: 15px;
+      transition: transform 0.4s ease;
+    }
+    /* Requisito: rotate() */
+    .landing-card:hover .icon {
+      transform: rotate(15deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- EXERCÍCIO 2 -->
+  <section class="container">
+    <h2 class="section-title">Exercício 2: Comparativo de Transformações</h2>
+    <div class="exercise-grid">
+      
+      <div class="ex-card card-scale">
+        <h3>Card 1</h3>
+        <p><code>scale(1.1)</code></p>
+        <small>Aumenta o tamanho proporcionalmente.</small>
+      </div>
+
+      <div class="ex-card card-rotate">
+        <h3>Card 2</h3>
+        <p><code>rotate(10deg)</code></p>
+        <small>Gira o elemento no sentido horário.</small>
+      </div>
+
+      <div class="ex-card card-translate">
+        <h3>Card 3</h3>
+        <p><code>translateY(-10px)</code></p>
+        <small>Desloca o elemento para cima.</small>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DESAFIO PROFISSIONAL -->
+  <section class="container">
+    <h2 class="section-title">Desafio Profissional: Landing Page</h2>
+    
+    <!-- Banner Principal (skew) -->
+    <header class="hero-banner">
+      <div class="hero-content">
+        <h2>Inovação & Design Digital</h2>
+        <p>Transforme suas ideias em interfaces modernas e responsivas.</p>
+        <!-- Botão (scale) -->
+        <a href="#" class="btn-action">Saiba Mais</a>
+      </div>
+    </header>
+
+    <!-- Cards (translate) com Ícones (rotate) -->
+    <div class="landing-grid">
+      
+      <div class="landing-card">
+        <span class="icon"></span>
+        <h3>Desempenho</h3>
+        <p>Interfaces leves desenvolvidas com CSS puro.</p>
+      </div>
+
+      <div class="landing-card">
+        <span class="icon"></span>
+        <h3>Design Moderno</h3>
+        <p>Efeitos visuais dinâmicos sem o uso de scripts.</p>
+      </div>
+
+      <div class="landing-card">
+        <span class="icon"></span>
+        <h3>Agilidade</h3>
+        <p>Facilidade na manutenção e estilização limpa.</p>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
+
+<!-- 
+  DIFERENÇAS QUE EU NOTEI:
+  - Card 1: Aumenta o tamanho do card em 10% (tanto na largura quanto na altura) sem empurrar nem mexer no layout dos outros elementos do lado.
+  - Card 2: Dá uma inclinada de 10 graus no sentido horário, girando a partir do centro do elemento.
+  - Card 3: Sobe o card 10 pixels pra cima no eixo vertical, criando aquele efeito massa de que ele está flutuando ou se levantando da tela.
+
+  RESPOSTAS PARA AS PERGUNTAS DE REFLEXÃO:
+
+  Qual transformação produziu o efeito visual mais adequado?
+  Achei que o translateY(-8px) nos cards junto com o scale(1.08) nos botões deram o resultado mais dinâmico e agradável. O skew() no banner trouxe um ar bem moderno, mas tive que compensar no elemento filho pra frase não ficar torta e atrapalhar a leitura.
+
+  O efeito melhorou a experiência do usuário?
+  Com certeza. Esse tipo de efeito dá um retorno visual na hora (as famosas micro-interações) quando a gente passa o mouse por cima dos elementos clicáveis.
+
+  O uso foi equilibrado ou excessivo?
+  Ficou super equilibrado! Como mantive a duração entre 0.2s e 0.4s e usei ângulos e movimentos bem suaves, nada ficou exagerado ou estranho na tela.
+-->
